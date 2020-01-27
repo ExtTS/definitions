@@ -22,7 +22,7 @@ If you compiling TypeScript project into result Javascript code and you will get
 ### Increasing Memory for TypeScript Compiller
 
 #### 1. Environment Variable `NODE_OPTIONS`
-Add environment variable `NODE_OPTIONS` ([introduced in Node 8](https://medium.com/the-node-js-collection/node-options-has-landed-in-8-x-5fba57af703d)) with value `--max-old-space-size=2147483648` to increase memory limit into value 2GB.
+Add environment variable `NODE_OPTIONS` ([introduced in Node 8](https://medium.com/the-node-js-collection/node-options-has-landed-in-8-x-5fba57af703d)) with value `--max-old-space-size=2048` to increase memory limit into value 2GB.
 
 ##### 1. a) Windows
 Open your environment variables dialog and add new or edit the variable in standard way and run the compilation again.
