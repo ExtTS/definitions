@@ -23,14 +23,14 @@ If you compiling TypeScript project into result Javascript code and you will get
 ### Increasing Memory for TypeScript Compiller
 
 #### 1. Environment Variable `NODE_OPTIONS`
-Add environment variable `NODE_OPTIONS` ([introduced in Node 8](https://medium.com/the-node-js-collection/node-options-has-landed-in-8-x-5fba57af703d)) with value `--max-old-space-size=2048` to increase memory limit into value 2GB.
+Add environment variable `NODE_OPTIONS` ([introduced in Node 8](https://medium.com/the-node-js-collection/node-options-has-landed-in-8-x-5fba57af703d)) with value `--max-old-space-size=4096` to increase memory limit into value 4GB.
 
 ##### 1. a) Windows
 Open your environment variables dialog and add new or edit the variable in standard way and run the compilation again.
 
 ##### 1. b) Linux
-Edit file `.bashrc` and add there line with `export NODE_OPTIONS=--max-old-space-size=2048`  
-to increase memory limit into value 2GB. Then run the compilation again.
+Edit file `.bashrc` and add there line with `export NODE_OPTIONS=--max-old-space-size=4096`  
+to increase memory limit into value 4GB. Then run the compilation again.
 
 
 #### 2. Dirty Hack Way
@@ -40,14 +40,14 @@ Edit file somewhere in path:
 `C:/Users/<UserName>/AppData/Roaming/npm/tsc.cmd`  
 Find line with this value:  
 `"%_prog%" "%dp0%\node_modules\typescript\bin\tsc" %*`  
-And change the line into this value to add memory limit approximately around 2GB:  
-`"%_prog%" --max-old-space-size=2048 "%dp0%\node_modules\typescript\bin\tsc" %*`  
+And change the line into this value to add memory limit approximately around 4GB:  
+`"%_prog%" --max-old-space-size=4096 "%dp0%\node_modules\typescript\bin\tsc" %*`  
 Close and save the file and run the compilation again with `tsc -w`.  
 
 ##### 2. b) Linux
 Find TypeScript compilator execution file by `which tsc`.  
-Open and change the file first line into this value to add memory limit approximately around 2GB:  
-`#!/usr/bin/env node --max-old-space-size=2048`  
+Open and change the file first line into this value to add memory limit approximately around 4GB:  
+`#!/usr/bin/env node --max-old-space-size=4096`  
 Close and save the file and run the compilation again with `tsc -w`.  
 
 ### The Error Example
