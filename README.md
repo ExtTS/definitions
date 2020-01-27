@@ -17,7 +17,8 @@ Best way to understand how to use the definitions are examples here:
 Those Ex.JS framework definitions could consume a lot of memory to compile your TypeScript project into result Javascript.  
 The reason is, because there are all JS Docs texts and all optional packages definitions like Charts, UX etc.  
 
-If you compiling TypeScript project into result Javascript code and you will get error like this (`JavaScript heap out of memory`), increase memory limit for your TypeScript project:
+If you compiling TypeScript project into result Javascript code and you will get error like this  
+(`JavaScript heap out of memory`), increase memory limit for your TypeScript project:
 
 ### Increasing Memory for TypeScript Compiller
 
@@ -28,25 +29,26 @@ Add environment variable `NODE_OPTIONS` ([introduced in Node 8](https://medium.c
 Open your environment variables dialog and add new or edit the variable in standard way and run the compilation again.
 
 ##### 1. b) Linux
-Edit file `.bashrc` and add there line with `export NODE_OPTIONS=--max-old-space-size=2048` to increase memory limit into value 2GB. Then run the compilation again.
+Edit file `.bashrc` and add there line with `export NODE_OPTIONS=--max-old-space-size=2048`  
+to increase memory limit into value 2GB. Then run the compilation again.
 
 
 #### 2. Dirty Hack Way
 
 ##### 2. a) Windows
-Edit file somewhere in path: 
-`C:/Users/<UserName>/AppData/Roaming/npm/tsc.cmd`
-Find line with this value: 
-`"%_prog%" "%dp0%\node_modules\typescript\bin\tsc" %*`
-And change the line into this value to add memory limit approximately around 2GB:
-`"%_prog%" --max-old-space-size=2048 "%dp0%\node_modules\typescript\bin\tsc" %*`
-Close and save the file and run the compilation again with `tsc -w`.
+Edit file somewhere in path:  
+`C:/Users/<UserName>/AppData/Roaming/npm/tsc.cmd`  
+Find line with this value:  
+`"%_prog%" "%dp0%\node_modules\typescript\bin\tsc" %*`  
+And change the line into this value to add memory limit approximately around 2GB:  
+`"%_prog%" --max-old-space-size=2048 "%dp0%\node_modules\typescript\bin\tsc" %*`  
+Close and save the file and run the compilation again with `tsc -w`.  
 
 ##### 2. b) Linux
-Find TypeScript compilator execution file by `which tsc`.
-Open and change the file first line into this value to add memory limit approximately around 2GB:
-`#!/usr/bin/env node --max-old-space-size=2048`
-Close and save the file and run the compilation again with `tsc -w`.
+Find TypeScript compilator execution file by `which tsc`.  
+Open and change the file first line into this value to add memory limit approximately around 2GB:  
+`#!/usr/bin/env node --max-old-space-size=2048`  
+Close and save the file and run the compilation again with `tsc -w`.  
 
 ### The Error Example
 ```
