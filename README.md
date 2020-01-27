@@ -8,6 +8,31 @@ The reason is, because there are all JS Docs texts and all optional packages def
 
 If you compiling TypeScript project into result Javascript code and you will get error like this (`JavaScript heap out of memory`), increase memory limit for your TypeScript project:
 
+### Increasing Memory for TypeScript Compiller
+
+#### 1. Environment Variable `NODE_OPTIONS`
+Add environment variable `NODE_OPTIONS` ([introduced in Node 8](https://medium.com/the-node-js-collection/node-options-has-landed-in-8-x-5fba57af703d)) with value `--max-old-space-size=2147483648` to increase memory limit into value 2GB.
+
+##### 1. a) Windows
+Open your environment variables dialog and add new or edit the variable in standard way and run the compilation again.
+
+##### 2. b) Linux
+Edit file `.bashrc` and add there line with `export NODE_OPTIONS=--max-old-space-size=2147483648` to increase memory limit into value 2GB. Then run the compilation again.
+
+
+#### 2. Dirty Hack Way
+##### 2. a) Windows
+Edit file somewhere in path: 
+`C:/Users/<UserName>/AppData/Roaming/npm/tsc.cmd`
+Find line with this value: 
+`"%_prog%" "%dp0%\node_modules\typescript\bin\tsc" %*`
+And add memory limit approximately around 2GB:
+`"%_prog%" --max-old-space-size=2147483648 "%dp0%\node_modules\typescript\bin\tsc" %*`
+Close and save the file and run the compilation again with `tsc -w`
+
+##### 2. b) Linux
+
+### Error Example
 ```
 [10:00:00 AM] Starting compilation in watch mode...
 
@@ -28,7 +53,7 @@ If you compiling TypeScript project into result Javascript code and you will get
 
     0: ExitFrame [pc: 0000018F30F5C5C1]
 Security context: 0x0259b821e6e9 <JSObject>
-    1: getDeclarationName(aka getDeclarationName) [00000111F8E1E499] [C:\Users\Administrator\AppData\Roaming\npm\node_modules\typescript\lib\tsc.js:~23681] [pc=0000018F312F56CA](this=0x00ad658026f1 <undefined>,node=0x00094428d4a9 <Node map = 000000E1B5311F59>)
+    1: getDeclarationName(aka getDeclarationName) [00000111F8E1E499] [C:\Users\<UserName>\AppData\Roaming\npm\node_modules\typescript\lib\tsc.js:~23681] [pc=0000018F312F56CA](this=0x00ad658026f1 <undefined>,node=0x00094428d4a9 <Node map = 000000E1B5311F59>)
     2: declareSymbol(aka declareSymbol) [00000111F8E1E519] [C:\Users\Administrator\AppData\Roamin...
 
 FATAL ERROR: Ineffective mark-compacts near heap limit Allocation failed - JavaScript heap out of memory
