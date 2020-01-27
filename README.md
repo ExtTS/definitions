@@ -16,23 +16,28 @@ Add environment variable `NODE_OPTIONS` ([introduced in Node 8](https://medium.c
 ##### 1. a) Windows
 Open your environment variables dialog and add new or edit the variable in standard way and run the compilation again.
 
-##### 2. b) Linux
+##### 1. b) Linux
 Edit file `.bashrc` and add there line with `export NODE_OPTIONS=--max-old-space-size=2147483648` to increase memory limit into value 2GB. Then run the compilation again.
 
 
 #### 2. Dirty Hack Way
+
 ##### 2. a) Windows
 Edit file somewhere in path: 
 `C:/Users/<UserName>/AppData/Roaming/npm/tsc.cmd`
 Find line with this value: 
 `"%_prog%" "%dp0%\node_modules\typescript\bin\tsc" %*`
-And add memory limit approximately around 2GB:
+And change the line into this value to add memory limit approximately around 2GB:
 `"%_prog%" --max-old-space-size=2147483648 "%dp0%\node_modules\typescript\bin\tsc" %*`
-Close and save the file and run the compilation again with `tsc -w`
+Close and save the file and run the compilation again with `tsc -w`.
 
 ##### 2. b) Linux
+Find TypeScript compilator execution file by `which tsc`.
+Open and change the file first line into this value to add memory limit approximately around 2GB:
+`#!/usr/bin/env node --max-old-space-size=2147483648`
+Close and save the file and run the compilation again with `tsc -w`.
 
-### Error Example
+### The Error Example
 ```
 [10:00:00 AM] Starting compilation in watch mode...
 
