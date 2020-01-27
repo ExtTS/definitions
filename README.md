@@ -28,7 +28,7 @@ Add environment variable `NODE_OPTIONS` ([introduced in Node 8](https://medium.c
 Open your environment variables dialog and add new or edit the variable in standard way and run the compilation again.
 
 ##### 1. b) Linux
-Edit file `.bashrc` and add there line with `export NODE_OPTIONS=--max-old-space-size=2147483648` to increase memory limit into value 2GB. Then run the compilation again.
+Edit file `.bashrc` and add there line with `export NODE_OPTIONS=--max-old-space-size=2048` to increase memory limit into value 2GB. Then run the compilation again.
 
 
 #### 2. Dirty Hack Way
@@ -39,13 +39,13 @@ Edit file somewhere in path:
 Find line with this value: 
 `"%_prog%" "%dp0%\node_modules\typescript\bin\tsc" %*`
 And change the line into this value to add memory limit approximately around 2GB:
-`"%_prog%" --max-old-space-size=2147483648 "%dp0%\node_modules\typescript\bin\tsc" %*`
+`"%_prog%" --max-old-space-size=2048 "%dp0%\node_modules\typescript\bin\tsc" %*`
 Close and save the file and run the compilation again with `tsc -w`.
 
 ##### 2. b) Linux
 Find TypeScript compilator execution file by `which tsc`.
 Open and change the file first line into this value to add memory limit approximately around 2GB:
-`#!/usr/bin/env node --max-old-space-size=2147483648`
+`#!/usr/bin/env node --max-old-space-size=2048`
 Close and save the file and run the compilation again with `tsc -w`.
 
 ### The Error Example
