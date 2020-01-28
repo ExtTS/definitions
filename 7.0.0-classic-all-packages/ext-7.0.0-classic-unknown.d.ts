@@ -8,7 +8,7 @@
  */
 
 declare namespace Ext.data {
-	/** Ext.data.proxy.Ajax.exception, Ext.data.proxy.Direct.exception, Ext.data.proxy.JsonP.exception, Ext.data.proxy.Rest.exception, Ext.data.proxy.Server.exception, Ext.data.proxy.Ajax.exception, Ext.data.proxy.Direct.exception, Ext.data.proxy.JsonP.exception, Ext.data.proxy.Rest.exception, Ext.data.proxy.Server.exception */
+	/** Ext.data.proxy.Ajax.exception, Ext.data.proxy.Direct.exception, Ext.data.proxy.JsonP.exception, Ext.data.proxy.Server.exception, Ext.data.proxy.Rest.exception, Ext.data.proxy.Ajax.exception, Ext.data.proxy.Direct.exception, Ext.data.proxy.JsonP.exception, Ext.data.proxy.Server.exception, Ext.data.proxy.Rest.exception */
 	class Response {}
 }
 declare namespace Ext.drag.proxy {
